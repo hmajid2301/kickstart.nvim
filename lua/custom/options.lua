@@ -5,9 +5,9 @@
 -- See `:help mapleader`
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.cmd.colorscheme "catppuccin"
 
 local opt = vim.opt
-
 
 opt.breakindent = true               -- Enable break indent
 opt.colorcolumn = "120"              -- Show column length
