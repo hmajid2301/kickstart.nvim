@@ -73,6 +73,7 @@ require('lazy').setup({
       flavour = "frappe",
       integrations = {
         dap = { enabled = true, enable_ui = true },
+        neotree = true,
         mason = true,
         symbols_outline = true,
         telescope = true,
