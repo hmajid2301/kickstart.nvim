@@ -1,8 +1,4 @@
-local function map(mode, lhs, rhs, opts)
-	opts = opts or {}
-	opts.silent = opts.silent ~= false
-	vim.keymap.set(mode, lhs, rhs, opts)
-end
+local map = vim.keymap.set
 
 -- Paste
 map("n", "@p", "i ^[p", { desc = "Paste at end of line with a space" })

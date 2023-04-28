@@ -14,6 +14,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Set leader key at the top
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
@@ -65,10 +69,16 @@ require('lazy').setup({
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
     opts = {
-      flavour = "frappe"
-    }
+      flavour = "frappe",
+      integrations = {
+        dap = { enabled = true, enable_ui = true },
+        mason = true,
+        symbols_outline = true,
+        telescope = true,
+        which_key = true,
+      },
+    },
   },
   {
     -- Set lualine as statusline
@@ -105,8 +115,6 @@ require('lazy').setup({
     opts = {},
   },
 
-
-
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -123,9 +131,11 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
 
   -- custom plugins
-  { import = 'custom.config' },
   { import = 'custom.plugins' },
 }, {})
+
+require("custom.config.mappings")
+require("custom.config.options")
 
 -- [[ Basic Keymaps ]]
 
